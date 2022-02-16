@@ -1,5 +1,11 @@
-import { View, Text } from "react-native";
+import { View, Text, Dimensions } from "react-native";
 import React from "react";
+import useChessBoard from "./hooks/useChessBoard";
+import Cell from "../Cell/Cell";
+
+import styles from "./styles";
+
+const windowWidth = Dimensions.get("window").width;
 
 const preset = {
   turn: "w",
@@ -40,9 +46,19 @@ const preset = {
 };
 
 const Board = () => {
+  const [boardView, boardTurn, cellClick] = useChessBoard(preset);
+
   return (
-    <View>
-      <Text>Board</Text>
+    <View style={styles.container}>
+      <View style={styles.boardContainer}>
+        <View style={[styles.board, { height: windowWidth }]}>
+          {boardView?.map((horisontal, h) => {
+            return horisontal.map(({ traced, piece, color, selected }, v) => {
+              return <Cell selected={selected} traced={traced} piece={piece} key={`${v}${h}`} v={v} h={h} color={color} onClick={cellClick} />;
+            });
+          })}
+        </View>
+      </View>
     </View>
   );
 };
