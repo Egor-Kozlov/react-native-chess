@@ -41,6 +41,9 @@ const checkTheCheck = (h, v, opportunity, board) => {
   board[opportunity.h][opportunity.v].piece = piece;
   board[h][v].piece = null;
 
+  // console.log("piece", piece);
+  // console.log("board: ", board);
+
   for (let i = 0; i < 8; i++) {
     for (let j = 0; j < 8; j++) {
       if (board[i][j].piece && board[i][j].piece.color !== piece.color) {
@@ -75,10 +78,12 @@ const createBoard = (preset) => {
         if (board[h][v].piece && board[h][v].piece.color === turn) {
           board[h][v].selected = true;
 
-          const opportunities = calculateOpportunities(h, v, structuredClone(board));
+          const opportunities = calculateOpportunities(h, v, JSON.parse(JSON.stringify(board))); //<- structuredClone(board)
 
           opportunities.forEach((opportunity) => {
-            if (checkTheCheck(h, v, opportunity, structuredClone(board))) board[opportunity.h][opportunity.v].traced = true;
+            if (checkTheCheck(h, v, opportunity, JSON.parse(JSON.stringify(board))))
+              //<- structuredClone(board)
+              board[opportunity.h][opportunity.v].traced = true;
           });
 
           setCurrentPiece({ h, v });

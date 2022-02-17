@@ -36,12 +36,23 @@ export default StyleSheet.create({
     alignSelf: "center",
     marginTop: "5%",
   },
-  buttonRed: {
-    backgroundColor: "#d90404",
-  },
   textStyle: {
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
+  },
+  remove: {
+    width: 40,
+    height: 40,
+    position: "absolute",
+    right: 2,
+    top: 2,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  removeImg: {
+    width: "70%",
+    height: "70%",
   },
 });

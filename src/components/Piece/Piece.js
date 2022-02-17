@@ -1,4 +1,4 @@
-import { View, Image } from "react-native";
+import { Image } from "react-native";
 import React from "react";
 
 const kw = require("../../img/pieces/white/png/kw.png");
@@ -33,4 +33,4 @@ const Piece = ({ piece }) => {
   return <Image source={image} style={{ width: "77%", height: "77%", resizeMode: "contain" }} />;
 };
 
-export default Piece;
+export default React.memo(Piece);

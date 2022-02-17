@@ -13,7 +13,13 @@ const Menu = ({ navigation }) => {
     <View style={styles.container}>
       <SettingsModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
       <ImageBackground source={background} resizeMode="cover" style={styles.background}>
-        <TouchableHighlight activeOpacity={0.6} underlayColor="#DDDDDD" onPress={() => setModalVisible(true)} style={styles.settingsContainer}>
+        <TouchableHighlight
+          activeOpacity={0.5}
+          underlayColor="#DDDDDD"
+          onPress={() => setModalVisible(true)}
+          style={styles.settingsContainer}
+          underlayColor={null}
+        >
           <Image source={settingIcon} style={styles.settingsIcon} />
         </TouchableHighlight>
         <View style={styles.buttonsContainer}>

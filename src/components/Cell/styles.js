@@ -16,4 +16,10 @@ export default StyleSheet.create({
   w: {
     backgroundColor: "#E9E9DF",
   },
+  selected: {
+    backgroundColor: "#82d975",
+  },
+  traced: {
+    backgroundColor: "#e89795",
+  },
 });

@@ -50,11 +50,23 @@ const Board = () => {
 
   return (
     <View style={styles.container}>
+      <Text>Turn: {boardTurn}</Text>
       <View style={styles.boardContainer}>
         <View style={[styles.board, { height: windowWidth }]}>
           {boardView?.map((horisontal, h) => {
             return horisontal.map(({ traced, piece, color, selected }, v) => {
-              return <Cell selected={selected} traced={traced} piece={piece} key={`${v}${h}`} v={v} h={h} color={color} onClick={cellClick} />;
+              return (
+                <Cell
+                  selected={selected}
+                  traced={traced}
+                  piece={piece}
+                  key={`${v}${h}`}
+                  v={v}
+                  h={h}
+                  color={color}
+                  onClick={cellClick}
+                />
+              );
             });
           })}
         </View>

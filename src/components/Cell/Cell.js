@@ -1,21 +1,22 @@
-import { View } from "react-native";
+import { View, Pressable } from "react-native";
 import React from "react";
 import Piece from "../Piece/Piece";
 import styles from "./styles";
 
 const Cell = ({ selected, traced, piece, color, h, v, onClick }) => {
-  const selected_cell = selected ? styles.selected : "";
-  const traced_cell = traced ? styles.traced : "";
+  const selected_cell = selected ? styles.selected : null;
+  const traced_cell = traced ? styles.traced : null;
   return (
-    <View
+    <Pressable
       //ToDo classnames lib
       id={`${h} ${v}`}
-      style={[styles.cell, styles[color]]}
+      style={[styles.cell, styles[color], selected_cell, traced_cell]}
+      onPressIn={() => onClick(h, v)}
       //   className={`${styles[color]} ${selected_cell} ${traced_cell}`}
-      //   onClick={() => onClick(h, v)}
+      // onClick={() => onClick(h, v)}
     >
       {piece ? <Piece piece={piece} /> : null}
-    </View>
+    </Pressable>
   );
 };
-export default Cell;
+export default React.memo(Cell);
