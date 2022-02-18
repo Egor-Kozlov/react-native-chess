@@ -1,3 +1,3 @@
 [submodule "chess_engine"]
-	path = chess_engine
+	path = /utilities/chess_engine
 	url = https://github.com/AstroKiR/chess_engine

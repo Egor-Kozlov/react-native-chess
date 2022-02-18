@@ -1,6 +1,6 @@
 import { View, Text, Dimensions } from "react-native";
 import React from "react";
-import useChessBoard from "./hooks/useChessBoard";
+import useChessBoard from "../../../utilities/chess_engine/hooks/useChessBoard";
 import Cell from "../Cell/Cell";
 
 import styles from "./styles";
