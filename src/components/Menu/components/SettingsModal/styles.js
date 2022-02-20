@@ -23,7 +23,6 @@ export default StyleSheet.create({
     textAlign: "center",
   },
   buttonsContainer: {
-    display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     width: 140,
@@ -47,7 +46,6 @@ export default StyleSheet.create({
     position: "absolute",
     right: 2,
     top: 2,
-    display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },

@@ -1,32 +1,37 @@
-import { Button, Pressable, Text, View, TouchableOpacity, TouchableHighlight, ImageBackground, Image, Modal } from "react-native";
-import { useState } from "react";
-import SettingsModal from "./components/SettingsModal/SettingsModal";
+import { Text, View, TouchableOpacity, TouchableHighlight, ImageBackground, Image } from "react-native";
+import SettingsModal from "./components/SettingsModal";
+import useOpenCloseModal from "../../hooks/useOpenCloseModal";
+import COMPONENTS_LIST from "../COMPONENTS_LIST";
+
 import styles from "./styles";
 
 const background = require("../../../src/img/backgrounds/menu-background-1.jpg");
 const settingIcon = require("../../img/icons/gear-3.png");
 
 const Menu = ({ navigation }) => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, openModal, closeModal] = useOpenCloseModal();
 
   return (
     <View style={styles.container}>
-      <SettingsModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+      <SettingsModal modalVisible={modalVisible} closeModal={closeModal} />
       <ImageBackground source={background} resizeMode="cover" style={styles.background}>
         <TouchableHighlight
           activeOpacity={0.5}
           underlayColor="#DDDDDD"
-          onPress={() => setModalVisible(true)}
+          onPress={() => navigation.navigate(COMPONENTS_LIST.Settings)}
           style={styles.settingsContainer}
           underlayColor={null}
         >
           <Image source={settingIcon} style={styles.settingsIcon} />
         </TouchableHighlight>
         <View style={styles.buttonsContainer}>
-          <TouchableOpacity onPress={() => navigation.navigate("PassPlay")} style={styles.button}>
+          <TouchableOpacity onPress={() => navigation.navigate(COMPONENTS_LIST.PassPlay)} style={styles.button}>
             <Text>Pass &#38; Play</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.button, { opacity: 0.3 }]}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(COMPONENTS_LIST.PassAFriend)}
+            style={[styles.button, { opacity: 0.3 }]}
+          >
             <Text>Play a Friend</Text>
           </TouchableOpacity>
         </View>

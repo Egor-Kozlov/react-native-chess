@@ -12,7 +12,6 @@ export default StyleSheet.create({
   },
   buttonsContainer: {
     paddingHorizontal: 15,
-    display: "flex",
     alignItems: "center",
   },
   button: {
@@ -26,11 +25,10 @@ export default StyleSheet.create({
   },
   settingsContainer: {
     position: "absolute",
-    right: "3%",
-    top: "2%",
+    right: "4%",
+    top: "5%",
     width: 45,
     height: 45,
-    display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
