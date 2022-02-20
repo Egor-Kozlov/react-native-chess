@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { FlatList } from "react-native";
 import Item from "./Item";
 import colorThemeList from "./colorThemeList";
-import BoardThemeContext from "../../../../context";
+import BoardThemeContext from "../../../../BoardThemeContext";
 
 const BoardColors = () => {
   const { pickedTheme, setPickedTheme } = useContext(BoardThemeContext);

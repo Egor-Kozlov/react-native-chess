@@ -5,7 +5,7 @@ export default StyleSheet.create({
     width: "12.5%",
     height: "12.5%",
     backgroundColor: "#eee",
-    borderWidth: StyleSheet.hairlineWidth,
+    // borderWidth: StyleSheet.hairlineWidth,
     justifyContent: "center",
     alignItems: "center",
   },
