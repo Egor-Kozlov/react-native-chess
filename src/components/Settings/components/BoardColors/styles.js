@@ -34,4 +34,11 @@ export default StyleSheet.create({
     width: "50%",
     height: "50%",
   },
+  checkMark: {
+    width: 28,
+    height: 28,
+    position: "absolute",
+    top: 50,
+    left: 30,
+  },
 });

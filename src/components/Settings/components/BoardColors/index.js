@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FlatList } from "react-native";
 import Item from "./Item";
 import colorThemeList from "./colorThemeList";
+import BoardThemeContext from "../../../../context";
 
 const BoardColors = () => {
+  const { pickedTheme, setPickedTheme } = useContext(BoardThemeContext);
+
   const renderItem = ({ item }) => (
     <Item
       title={item.title}
@@ -12,6 +15,8 @@ const BoardColors = () => {
       whiteCell={item.whiteCell}
       blackCell={item.blackCell}
       borderCell={item.borderCell}
+      pickedTheme={pickedTheme}
+      setPickedTheme={setPickedTheme}
     />
   );
 
