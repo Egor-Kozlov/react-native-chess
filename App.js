@@ -1,5 +1,5 @@
-// import Navigate from "./Navigate";
+import Navigate from "./Navigate";
 
-// export default function App() {
-//   return <Navigate />;
-// }
+export default function App() {
+  return <Navigate />;
+}
