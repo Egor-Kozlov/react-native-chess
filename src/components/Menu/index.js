@@ -6,28 +6,30 @@ import {
   ImageBackground,
   Image,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import SettingsModal from "./components/SettingsModal";
 import useOpenCloseModal from "../../hooks/useOpenCloseModal";
 import COMPONENTS_LIST from "../COMPONENTS_LIST";
-
 import styles from "./styles";
+import SettingsContext from "../../SettingsContext";
 
 const background = require("../../../src/img/backgrounds/menu-background-1.jpg");
 const mainLogo = require("../../../src/img/icons/main_logo_2.png");
 const settingIcon = require("../../img/icons/gear-3.png");
 
 const Menu = ({ navigation }) => {
+  const { mainBackground } = useContext(SettingsContext);
+  // const background = require(mainBackgroundSRC);
   const [modalVisible, openModal, closeModal] = useOpenCloseModal();
-  const [backgroundSRC, setBackgroundSRC] = useState(
-    require("../../../src/img/backgrounds/menu-background-1.jpg")
-  );
+  // const [mainBackgroundSRC, setMainBackgroundSRC] = useState(
+  //   require("../../../src/img/backgrounds/menu-background-1.jpg")
+  // );
 
   return (
     <View style={styles.container}>
       <SettingsModal modalVisible={modalVisible} closeModal={closeModal} />
       <ImageBackground
-        source={backgroundSRC}
+        source={background}
         resizeMode="cover"
         style={styles.background}
       >

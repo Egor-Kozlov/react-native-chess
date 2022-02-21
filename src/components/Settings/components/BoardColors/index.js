@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { FlatList } from "react-native";
 import Item from "./Item";
 import colorThemeList from "./colorThemeList";
-import BoardThemeContext from "../../../../BoardThemeContext";
+import SettingsContext from "../../../../SettingsContext";
 
 const BoardColors = () => {
-  const { pickedTheme, setPickedTheme } = useContext(BoardThemeContext);
+  const { pickedTheme, setPickedTheme } = useContext(SettingsContext);
 
   const renderItem = ({ item }) => (
     <Item
@@ -20,7 +20,13 @@ const BoardColors = () => {
     />
   );
 
-  return <FlatList data={colorThemeList} renderItem={renderItem} keyExtractor={(item) => item.id} />;
+  return (
+    <FlatList
+      data={colorThemeList}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id}
+    />
+  );
 };
 
 export default BoardColors;
