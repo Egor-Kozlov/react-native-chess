@@ -4,6 +4,8 @@ const COMPONENTS_LIST = {
   PassAFriend: "PassAFriend",
   Settings: "Settings",
   SettingsItem: "SettingsItem",
+  MenuBackground: "MenuBackground",
+  PiecesStyle: "PiecesStyle",
   BoardColors: "BoardColors",
 };
 

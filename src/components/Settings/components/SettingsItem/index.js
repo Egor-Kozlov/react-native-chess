@@ -1,7 +1,7 @@
 import { Pressable, Text, StyleSheet, StatusBar } from "react-native";
 import COMPONENTS_LIST from "../../../COMPONENTS_LIST";
 
-const SettingsItem = ({ title, navigation }) => (
+const SettingsItem = ({ title, navigation, id }) => (
   <Pressable
     style={({ pressed }) => [
       {
@@ -9,7 +9,7 @@ const SettingsItem = ({ title, navigation }) => (
       },
       styles.item,
     ]}
-    onPress={() => navigation.navigate(COMPONENTS_LIST.BoardColors)}
+    onPress={() => navigation.navigate(COMPONENTS_LIST[id])}
   >
     <Text style={styles.title}>{title}</Text>
   </Pressable>

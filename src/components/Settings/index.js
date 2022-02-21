@@ -4,23 +4,31 @@ import SettingsItem from "./components/SettingsItem";
 
 const SETTINGS_ITEMS = [
   {
-    id: "1",
+    id: "MenuBackground",
     title: "The background",
   },
   {
-    id: "2",
+    id: "PiecesStyle",
     title: "Pieces style",
   },
   {
-    id: "3",
+    id: "BoardColors",
     title: "Board Colors",
   },
 ];
 
 const Settings = ({ navigation }) => {
-  const renderItem = ({ item }) => <SettingsItem navigation={navigation} title={item.title} />;
+  const renderItem = ({ item }) => (
+    <SettingsItem navigation={navigation} title={item.title} id={item.id} />
+  );
 
-  return <FlatList data={SETTINGS_ITEMS} renderItem={renderItem} keyExtractor={(item) => item.id} />;
+  return (
+    <FlatList
+      data={SETTINGS_ITEMS}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id}
+    />
+  );
 };
 
 export default Settings;
