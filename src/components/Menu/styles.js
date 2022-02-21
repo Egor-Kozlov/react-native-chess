@@ -7,10 +7,16 @@ export default StyleSheet.create({
   },
   background: {
     flex: 1,
-    justifyContent: "center",
+    // justifyContent: "center",
     width: "100%",
   },
+  mainLogo: {
+    width: 170,
+    height: 170,
+    marginBottom: 50,
+  },
   buttonsContainer: {
+    marginTop: "20%",
     paddingHorizontal: 15,
     alignItems: "center",
   },

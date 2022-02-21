@@ -30,8 +30,6 @@ export default function App() {
     setWhiteColor(theme.whiteCell);
     setBlackColor(theme.blackCell);
     setBorderColor(theme.borderCell);
-    console.log("whiteColor: ", whiteColor);
-    console.log("blackColor: ", blackColor);
   };
 
   useEffect(() => {

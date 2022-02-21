@@ -6,7 +6,6 @@ import styles from "./styles";
 
 const Cell = ({ selected, traced, piece, color, h, v, onClick }) => {
   const { whiteColor, blackColor, borderColor } = useContext(BoardThemeContext);
-  console.log("borderColor: ", borderColor);
   const colorTheme = color === "w" ? whiteColor : blackColor;
 
   const selectedCell = selected ? styles.selected : null;

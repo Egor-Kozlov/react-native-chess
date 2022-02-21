@@ -6,6 +6,7 @@ import COMPONENTS_LIST from "../COMPONENTS_LIST";
 import styles from "./styles";
 
 const background = require("../../../src/img/backgrounds/menu-background-1.jpg");
+const mainLogo = require("../../../src/img/icons/main_logo_2.png");
 const settingIcon = require("../../img/icons/gear-3.png");
 
 const Menu = ({ navigation }) => {
@@ -25,6 +26,7 @@ const Menu = ({ navigation }) => {
           <Image source={settingIcon} style={styles.settingsIcon} />
         </TouchableHighlight>
         <View style={styles.buttonsContainer}>
+          <Image source={mainLogo} style={styles.mainLogo} />
           <TouchableOpacity onPress={() => navigation.navigate(COMPONENTS_LIST.PassPlay)} style={styles.button}>
             <Text>Pass &#38; Play</Text>
           </TouchableOpacity>
