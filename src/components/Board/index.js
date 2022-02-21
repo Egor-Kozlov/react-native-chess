@@ -12,7 +12,7 @@ const Board = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Turn: {boardTurn}</Text>
+      {/* <Text>Turn: {boardTurn}</Text> */}
       <View style={styles.boardContainer}>
         <View style={[styles.board, { height: width }]}>
           {boardView?.map((horisontal, h) => {

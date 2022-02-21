@@ -31,7 +31,7 @@ const Menu = ({ navigation }) => {
             <Text>Pass &#38; Play</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigation.navigate(COMPONENTS_LIST.PassAFriend)}
+            // onPress={() => navigation.navigate(COMPONENTS_LIST.PassAFriend)}
             style={[styles.button, { opacity: 0.3 }]}
           >
             <Text>Play a Friend</Text>
