@@ -1,14 +1,20 @@
 import { View, Text, useWindowDimensions } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import useChessBoard from "../../../utilities/chess_engine/hooks/useChessBoard";
 import Cell from "../Cell";
 import piecesPreset from "./services/piecesPreset";
+import piecesList from "../Settings/components/PiecesStyle/piecesList";
+import SettingsContext from "../../context/SettingsContext";
 
 import styles from "./styles";
 
 const Board = () => {
+  const { pieces } = useContext(SettingsContext);
+
   const [boardView, boardTurn, cellClick] = useChessBoard(piecesPreset);
   const { height, width } = useWindowDimensions();
+
+  const piecesStyle = piecesList.find((el) => el.id === pieces);
 
   return (
     <View style={styles.container}>
@@ -27,6 +33,7 @@ const Board = () => {
                   h={h}
                   color={color}
                   onClick={cellClick}
+                  piecesStyle={piecesStyle}
                 />
               );
             });

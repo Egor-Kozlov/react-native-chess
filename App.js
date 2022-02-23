@@ -5,8 +5,11 @@ import Navigate from "./Navigate";
 import SettingsContext from "./src/context/SettingsContext";
 import colorThemeList from "./src/components/Settings/components/BoardColors/colorThemeList";
 import backgroundsList from "./src/components/Settings/components/MenuBackground/backgroundsList";
+import piecesList from "./src/components/Settings/components/PiecesStyle/piecesList";
 
-const STORAGE_KEY = "boardTheme";
+const BOARD_THEME_STORAGE_KEY = "boardTheme";
+const MENU_BACKGROUND_STORAGE_KEY = "menuBackground";
+const SET_PIECES_STORAGE_KEY = "setPieces";
 
 export default function App() {
   // const { valueFromStorage, readItemFromStorage, writeItemToStorage } =
@@ -17,8 +20,9 @@ export default function App() {
   const [blackColor, setBlackColor] = useState("#B58863");
   const [borderColor, setBorderColor] = useState(null);
   const [mainBackgroundSRC, setMainBackgroundSRC] = useState(backgroundsList[0].backgroundSRC);
+  const [pieces, setPieces] = useState(piecesList[0].id);
 
-  const { getItem, setItem } = useAsyncStorage(STORAGE_KEY);
+  const { getItem, setItem } = useAsyncStorage(BOARD_THEME_STORAGE_KEY);
 
   const readItemFromStorage = async () => {
     const jsonValue = await getItem();
@@ -58,6 +62,8 @@ export default function App() {
         borderColor,
         mainBackgroundSRC,
         setMainBackgroundSRC,
+        pieces,
+        setPieces,
       }}
     >
       <Navigate />

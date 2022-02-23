@@ -1,11 +1,11 @@
 import { Pressable, StyleSheet } from "react-native";
 import React, { useContext } from "react";
-import BoardThemeContext from "../../context/SettingsContext";
+import SettingsContext from "../../context/SettingsContext";
 import Piece from "../Piece";
 import styles from "./styles";
 
-const Cell = ({ selected, traced, piece, color, h, v, onClick }) => {
-  const { whiteColor, blackColor, borderColor } = useContext(BoardThemeContext);
+const Cell = ({ selected, traced, piece, color, h, v, onClick, piecesStyle }) => {
+  const { whiteColor, blackColor, borderColor } = useContext(SettingsContext);
   const colorTheme = color === "w" ? whiteColor : blackColor;
 
   const selectedCell = selected ? styles.selected : null;
@@ -24,7 +24,7 @@ const Cell = ({ selected, traced, piece, color, h, v, onClick }) => {
       ]}
       onPressIn={() => onClick(h, v)}
     >
-      {piece ? <Piece piece={piece} /> : null}
+      {piece ? <Piece piece={piece} piecesStyle={piecesStyle} /> : null}
     </Pressable>
   );
 };
