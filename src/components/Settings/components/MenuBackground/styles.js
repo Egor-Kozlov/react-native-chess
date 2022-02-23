@@ -20,6 +20,7 @@ export default StyleSheet.create({
     width: 175,
     height: "100%",
     backgroundColor: "#dedede",
+    // backgroundColor: "#cff0c9",
   },
   image: {
     width: "100%",

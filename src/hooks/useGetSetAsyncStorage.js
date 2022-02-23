@@ -8,6 +8,7 @@ export default function useGetSetAsyncStorage(STORAGE_KEY) {
   const readItemFromStorage = async () => {
     const jsonValue = await getItem();
     jsonValue != null ? setValueFromStorage(JSON.parse(jsonValue)) : null;
+    // return valueFromStorage;
   };
 
   const writeItemToStorage = async (newValue) => {
