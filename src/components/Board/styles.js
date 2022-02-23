@@ -7,7 +7,8 @@ export default StyleSheet.create({
     justifyContent: "center",
   },
   board: {
-    borderWidth: StyleSheet.hairlineWidth,
+    borderWidth: 7,
+    borderColor: "#dedede",
     width: "100%",
     flexWrap: "wrap-reverse",
     flexDirection: "row",

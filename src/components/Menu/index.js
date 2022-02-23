@@ -1,17 +1,10 @@
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  TouchableHighlight,
-  ImageBackground,
-  Image,
-} from "react-native";
+import { Text, View, TouchableOpacity, TouchableHighlight, ImageBackground, Image } from "react-native";
 import React, { useState, useContext } from "react";
 import SettingsModal from "./components/SettingsModal";
 import useOpenCloseModal from "../../hooks/useOpenCloseModal";
 import COMPONENTS_LIST from "../COMPONENTS_LIST";
 import styles from "./styles";
-import SettingsContext from "../../SettingsContext";
+import SettingsContext from "../../context/SettingsContext";
 
 const background = require("../../../src/img/backgrounds/menu-background-1.jpg");
 const mainLogo = require("../../../src/img/icons/main_logo_2.png");
@@ -28,11 +21,7 @@ const Menu = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <SettingsModal modalVisible={modalVisible} closeModal={closeModal} />
-      <ImageBackground
-        source={background}
-        resizeMode="cover"
-        style={styles.background}
-      >
+      <ImageBackground source={background} resizeMode="cover" style={styles.background}>
         <TouchableHighlight
           activeOpacity={0.5}
           underlayColor="#DDDDDD"
@@ -44,10 +33,7 @@ const Menu = ({ navigation }) => {
         </TouchableHighlight>
         <View style={styles.buttonsContainer}>
           <Image source={mainLogo} style={styles.mainLogo} />
-          <TouchableOpacity
-            onPress={() => navigation.navigate(COMPONENTS_LIST.PassPlay)}
-            style={styles.button}
-          >
+          <TouchableOpacity onPress={() => navigation.navigate(COMPONENTS_LIST.PassPlay)} style={styles.button}>
             <Text>Pass &#38; Play</Text>
           </TouchableOpacity>
           <TouchableOpacity

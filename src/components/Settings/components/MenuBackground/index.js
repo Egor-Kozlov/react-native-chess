@@ -1,15 +1,6 @@
 import React from "react";
-import {
-  SafeAreaView,
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  ScrollView,
-  StatusBar,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { SafeAreaView, View, FlatList, StyleSheet, Text, ScrollView, StatusBar, Image, TouchableOpacity } from "react-native";
+// import backgroundsList from "./backgroundsList";
 
 const DATA = [
   {
@@ -26,15 +17,8 @@ const DATA = [
 const Item = ({ title }) => (
   <View style={styles.itemContainer}>
     <TouchableOpacity activeOpacity={0.7} style={styles.item}>
-      <Image
-        source={require("../../../../img/backgrounds/menu-background-1.jpg")}
-        resizeMode="cover"
-        style={styles.image}
-      />
-      <Image
-        style={styles.picked}
-        source={require("../../../../img/icons/correct.png")}
-      />
+      <Image source={require("../../../../img/backgrounds/menu-background-1.jpg")} resizeMode="cover" style={styles.image} />
+      <Image style={styles.picked} source={require("../../../../img/icons/correct.png")} />
     </TouchableOpacity>
   </View>
 );
@@ -42,14 +26,7 @@ const Item = ({ title }) => (
 const MenuBackground = () => {
   const renderItem = ({ item }) => <Item title={item.title} />;
 
-  return (
-    <FlatList
-      data={DATA}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.id}
-      style={styles.list}
-    />
-  );
+  return <FlatList data={DATA} renderItem={renderItem} keyExtractor={(item) => item.id} style={styles.list} />;
 };
 
 const styles = StyleSheet.create({

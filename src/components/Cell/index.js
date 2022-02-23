@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet } from "react-native";
 import React, { useContext } from "react";
-import BoardThemeContext from "../../SettingsContext";
+import BoardThemeContext from "../../context/SettingsContext";
 import Piece from "../Piece";
 import styles from "./styles";
 
@@ -18,9 +18,7 @@ const Cell = ({ selected, traced, piece, color, h, v, onClick }) => {
       style={[
         styles.cell,
         { backgroundColor: colorTheme },
-        borderColor
-          ? { borderWidth: StyleSheet.hairlineWidth, borderColor: borderColor }
-          : null,
+        borderColor ? { borderWidth: StyleSheet.hairlineWidth, borderColor: borderColor } : null,
         selectedCell,
         tracedCell,
       ]}
