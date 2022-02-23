@@ -17,6 +17,7 @@ const BoardColors = () => {
       borderCell={item.borderCell}
       pickedTheme={pickedTheme}
       setPickedTheme={setPickedTheme}
+      checked={pickedTheme === item.title ? true : false}
     />
   );
 

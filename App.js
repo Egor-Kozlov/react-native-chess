@@ -4,6 +4,7 @@ import { useAsyncStorage } from "@react-native-async-storage/async-storage";
 import Navigate from "./Navigate";
 import SettingsContext from "./src/context/SettingsContext";
 import colorThemeList from "./src/components/Settings/components/BoardColors/colorThemeList";
+import backgroundsList from "./src/components/Settings/components/MenuBackground/backgroundsList";
 
 const STORAGE_KEY = "boardTheme";
 
@@ -15,7 +16,7 @@ export default function App() {
   const [whiteColor, setWhiteColor] = useState("#F0D9B5");
   const [blackColor, setBlackColor] = useState("#B58863");
   const [borderColor, setBorderColor] = useState(null);
-  const [mainBackgroundSRC, setMainBackgroundSRC] = useState("menu-background-1");
+  const [mainBackgroundSRC, setMainBackgroundSRC] = useState(backgroundsList[0].backgroundSRC);
 
   const { getItem, setItem } = useAsyncStorage(STORAGE_KEY);
 

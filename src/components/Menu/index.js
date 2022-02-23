@@ -6,22 +6,17 @@ import COMPONENTS_LIST from "../COMPONENTS_LIST";
 import styles from "./styles";
 import SettingsContext from "../../context/SettingsContext";
 
-const background = require("../../../src/img/backgrounds/menu-background-1.jpg");
 const mainLogo = require("../../../src/img/icons/main_logo_2.png");
 const settingIcon = require("../../img/icons/gear-3.png");
 
 const Menu = ({ navigation }) => {
-  const { mainBackground } = useContext(SettingsContext);
-  // const background = require(mainBackgroundSRC);
+  const { mainBackgroundSRC } = useContext(SettingsContext);
   const [modalVisible, openModal, closeModal] = useOpenCloseModal();
-  // const [mainBackgroundSRC, setMainBackgroundSRC] = useState(
-  //   require("../../../src/img/backgrounds/menu-background-1.jpg")
-  // );
 
   return (
     <View style={styles.container}>
       <SettingsModal modalVisible={modalVisible} closeModal={closeModal} />
-      <ImageBackground source={background} resizeMode="cover" style={styles.background}>
+      <ImageBackground source={mainBackgroundSRC} resizeMode="cover" style={styles.background}>
         <TouchableHighlight
           activeOpacity={0.5}
           underlayColor="#DDDDDD"
