@@ -15,7 +15,7 @@ const Menu = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <SettingsModal modalVisible={modalVisible} closeModal={closeModal} />
+      <SettingsModal modalVisible={modalVisible} closeModal={closeModal} navigation={navigation} />
       <ImageBackground source={mainBackgroundSRC} resizeMode="cover" style={styles.background}>
         <TouchableHighlight
           activeOpacity={0.5}
@@ -28,7 +28,10 @@ const Menu = ({ navigation }) => {
         </TouchableHighlight>
         <View style={styles.buttonsContainer}>
           <Image source={mainLogo} style={styles.mainLogo} />
-          <TouchableOpacity onPress={() => navigation.navigate(COMPONENTS_LIST.PassPlay)} style={styles.button}>
+          {/* <TouchableOpacity onPress={() => navigation.navigate(COMPONENTS_LIST.PassPlay)} style={styles.button}>
+            <Text>Pass &#38; Play</Text>
+          </TouchableOpacity> */}
+          <TouchableOpacity onPress={() => openModal()} style={styles.button}>
             <Text>Pass &#38; Play</Text>
           </TouchableOpacity>
           <TouchableOpacity

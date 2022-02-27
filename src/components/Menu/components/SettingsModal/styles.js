@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   modalView: {
     margin: 15,
-    top: "130%",
+    top: "40%",
     backgroundColor: "white",
     borderRadius: 10,
     padding: 35,
@@ -52,5 +52,17 @@ export default StyleSheet.create({
   removeImg: {
     width: "70%",
     height: "70%",
+  },
+  //float list
+  itemsList: {
+    width: "100%",
+  },
+  item: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingVertical: 10,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: "gray",
   },
 });

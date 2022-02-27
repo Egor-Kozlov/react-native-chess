@@ -1,21 +1,30 @@
-import { View, Text, useWindowDimensions } from "react-native";
-import React, { useContext } from "react";
+import { View, useWindowDimensions } from "react-native";
+import React, { useContext, useEffect, useState } from "react";
 import useChessBoard from "../../../utilities/chess_engine/hooks/useChessBoard";
 import Cell from "../Cell";
 import piecesPreset from "./services/piecesPreset";
 import piecesList from "../Settings/components/PiecesStyle/piecesList";
 import SettingsContext from "../../context/SettingsContext";
+import useMoveSound from "../../hooks/useMoveSound";
 
 import styles from "./styles";
 
 const Board = () => {
+  const [playMoveSound] = useMoveSound();
   const { pieces } = useContext(SettingsContext);
 
   const [boardView, boardTurn, cellClick] = useChessBoard(piecesPreset);
   const { height, width } = useWindowDimensions();
 
   const piecesStyle = piecesList.find((el) => el.id === pieces);
+  ///
+  const [firstMove, setFirstMove] = useState(false);
 
+  useEffect(() => {
+    playMoveSound();
+  }, [boardTurn]);
+
+  ///
   return (
     <View style={styles.container}>
       {/* <Text>Turn: {boardTurn}</Text> */}
