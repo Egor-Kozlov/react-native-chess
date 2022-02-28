@@ -21,6 +21,7 @@ export default function App() {
   const [borderColor, setBorderColor] = useState(null);
   const [mainBackgroundSRC, setMainBackgroundSRC] = useState(backgroundsList[0].backgroundSRC);
   const [pieces, setPieces] = useState(piecesList[0].id);
+  const [pickedTimer, setPickedTimer] = useState(false);
 
   const { getItem, setItem } = useAsyncStorage(BOARD_THEME_STORAGE_KEY);
 
@@ -64,6 +65,8 @@ export default function App() {
         setMainBackgroundSRC,
         pieces,
         setPieces,
+        pickedTimer,
+        setPickedTimer,
       }}
     >
       <Navigate />

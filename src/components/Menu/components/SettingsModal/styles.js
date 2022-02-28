@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   modalView: {
     margin: 15,
-    top: "40%",
+    top: 130,
     backgroundColor: "white",
     borderRadius: 10,
     padding: 35,

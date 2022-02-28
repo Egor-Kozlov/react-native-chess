@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import { Modal, Text, Pressable, View, Image, TouchableHighlight, FlatList, Switch } from "react-native";
+import React, { useState, useEffect, useContext } from "react";
+import { Modal, Text, Pressable, View, Image, TouchableHighlight, Switch } from "react-native";
+import SettingsContext from "../../../../context/SettingsContext";
 import COMPONENTS_LIST from "../../../COMPONENTS_LIST";
 import styles from "./styles";
+import TimePicker from "./TimePicker";
 
 const removeIcon = require("../../../../img/icons/remove_icon.png");
 
@@ -9,8 +11,15 @@ const SettingsModal = ({ modalVisible, closeModal, navigation }) => {
   //switch
   const [isBoardFlipsEnabled, setIsBoardFlipsEnabled] = useState(false);
   const [isTimerEnabled, setIsTimerEnabled] = useState(false);
+  const [timerValue, setTimerValue] = useState(false);
 
-  // const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const { pickedTimer, setPickedTimer } = useContext(SettingsContext);
+
+  useEffect(() => {
+    if (!isTimerEnabled) {
+      setTimerValue(false);
+    }
+  }, [isTimerEnabled]);
 
   const toggleSwitch = (switcherSetState) => {
     switcherSetState((previousState) => !previousState);
@@ -30,7 +39,7 @@ const SettingsModal = ({ modalVisible, closeModal, navigation }) => {
           <TouchableHighlight style={styles.remove} onPress={() => closeModal()} activeOpacity={0.5} underlayColor={null}>
             <Image source={removeIcon} style={styles.removeImg} />
           </TouchableHighlight>
-          <Text style={styles.modalText}>Settings</Text>
+          <Text style={styles.modalText}>Match settings:</Text>
           <View style={styles.itemsList}>
             <View style={styles.item}>
               <Text style={styles.title}>Board Flips</Text>
@@ -52,10 +61,12 @@ const SettingsModal = ({ modalVisible, closeModal, navigation }) => {
                 value={isTimerEnabled}
               />
             </View>
+            {isTimerEnabled ? <TimePicker timerValue={timerValue} setTimerValue={setTimerValue} /> : null}
           </View>
           <Pressable
             style={[styles.button, styles.buttonClose]}
             onPress={() => {
+              setPickedTimer(timerValue);
               closeModal();
               navigation.navigate(COMPONENTS_LIST.PassPlay);
             }}
