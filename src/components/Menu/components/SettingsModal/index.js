@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Modal, Text, Pressable, View, Image, TouchableHighlight, Switch } from "react-native";
+import { Modal, Text, View, Image, TouchableHighlight, Switch, TouchableOpacity } from "react-native";
 import SettingsContext from "../../../../context/SettingsContext";
 import COMPONENTS_LIST from "../../../COMPONENTS_LIST";
 import styles from "./styles";
 import TimePicker from "./TimePicker";
+import timePresets from "./timePresets";
 
 const removeIcon = require("../../../../img/icons/remove_icon.png");
 
@@ -13,11 +14,14 @@ const SettingsModal = ({ modalVisible, closeModal, navigation }) => {
   const [isTimerEnabled, setIsTimerEnabled] = useState(false);
   const [timerValue, setTimerValue] = useState(false);
 
-  const { pickedTimer, setPickedTimer } = useContext(SettingsContext);
+  const { setPickedTimer } = useContext(SettingsContext);
 
+  //for correct time switcher and time picker work
   useEffect(() => {
     if (!isTimerEnabled) {
       setTimerValue(false);
+    } else if (isTimerEnabled && !timerValue) {
+      setTimerValue(timePresets[0].timeSettings);
     }
   }, [isTimerEnabled]);
 
@@ -63,7 +67,8 @@ const SettingsModal = ({ modalVisible, closeModal, navigation }) => {
             </View>
             {isTimerEnabled ? <TimePicker timerValue={timerValue} setTimerValue={setTimerValue} /> : null}
           </View>
-          <Pressable
+          <TouchableOpacity
+            activeOpacity={0.65}
             style={[styles.button, styles.buttonClose]}
             onPress={() => {
               setPickedTimer(timerValue);
@@ -71,8 +76,8 @@ const SettingsModal = ({ modalVisible, closeModal, navigation }) => {
               navigation.navigate(COMPONENTS_LIST.PassPlay);
             }}
           >
-            <Text style={styles.textStyle}>Play</Text>
-          </Pressable>
+            <Text style={styles.textStyle}>Start Play</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </Modal>

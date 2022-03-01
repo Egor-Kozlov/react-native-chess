@@ -31,7 +31,7 @@ export default StyleSheet.create({
     borderRadius: 15,
     padding: 10,
     elevation: 2,
-    backgroundColor: "#2196F3",
+    backgroundColor: "#d6af74",
     alignSelf: "center",
     marginTop: "5%",
   },
