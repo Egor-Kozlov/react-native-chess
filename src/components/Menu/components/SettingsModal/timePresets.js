@@ -29,7 +29,7 @@ export default [
   },
   {
     label: "15 | 10",
-    timeSettings: "15, 10",
+    timeSettings: "15,10",
   },
   {
     label: "30 min",
