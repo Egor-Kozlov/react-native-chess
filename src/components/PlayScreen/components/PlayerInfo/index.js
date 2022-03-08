@@ -4,11 +4,11 @@ import Timer from "../Timer";
 import styles from "./styles";
 import convertPickedTimerToNumber from "./convertPickedTimerToNumber";
 
-const PlayerInfo = ({ playerName, pickedTimer }) => {
+const PlayerInfo = ({ isTurn, playerName, pickedTimer }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.playerName}>{playerName}</Text>
-      {pickedTimer ? <Timer active={true} pickedTimer={convertPickedTimerToNumber(pickedTimer)} /> : null}
+      {pickedTimer ? <Timer active={isTurn ? true : false} pickedTimer={convertPickedTimerToNumber(pickedTimer)} /> : null}
     </View>
   );
 };

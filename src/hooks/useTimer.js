@@ -4,26 +4,32 @@ export default function (min = 0, sec = 0) {
   const [minutes, setMinutes] = useState(min);
   const [seconds, setSeconds] = useState(sec);
   const [isTimeOut, setIsTimeOut] = useState(false);
+  const [pause, setPause] = useState(false);
 
   useEffect(() => {
-    let myInterval = setInterval(() => {
-      if (seconds > 0) {
-        setSeconds(seconds - 1);
-      }
-      if (seconds === 0) {
-        if (minutes === 0) {
-          setIsTimeOut(true);
-          clearInterval(myInterval);
-        } else {
-          setMinutes(minutes - 1);
-          setSeconds(59);
+    if (!pause) {
+      let interval;
+      interval = setTimeout(function tick() {
+        if (seconds > 0) {
+          setSeconds(seconds - 1);
         }
-      }
-    }, 1000);
-    return () => {
-      clearInterval(myInterval);
-    };
-  });
+        if (seconds === 0) {
+          if (minutes === 0) {
+            setIsTimeOut(true);
+            clearInterval(interval);
+          } else {
+            setMinutes(minutes - 1);
+            setSeconds(59);
+          }
+        }
+        interval = setTimeout(tick, 1000);
+      }, 1000);
+      return () => {
+        clearTimeout(interval);
+      };
+    }
+    return;
+  }, [pause, seconds]);
 
-  return [minutes, seconds < 10 && seconds >= 0 ? `0${seconds}` : seconds, isTimeOut];
+  return [minutes, seconds < 10 && seconds >= 0 ? `0${seconds}` : seconds, isTimeOut, setPause];
 }
