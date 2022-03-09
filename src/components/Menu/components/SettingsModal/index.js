@@ -9,7 +9,7 @@ import timePresets from "./timePresets";
 const removeIcon = require("../../../../img/icons/remove_icon.png");
 
 const SettingsModal = ({ modalVisible, closeModal, navigation }) => {
-  //switch
+  //switcher
   const [isBoardFlipsEnabled, setIsBoardFlipsEnabled] = useState(false);
   const [isTimerEnabled, setIsTimerEnabled] = useState(false);
   const [timerValue, setTimerValue] = useState(false);

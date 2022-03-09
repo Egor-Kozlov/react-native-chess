@@ -1,9 +1,14 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   modalView: {
+    width: 300,
     margin: 15,
-    top: 130,
     backgroundColor: "white",
     borderRadius: 10,
     padding: 35,
@@ -58,6 +63,7 @@ export default StyleSheet.create({
     width: "100%",
   },
   item: {
+    width: "100%",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",

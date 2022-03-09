@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import useTimer from "../../../../hooks/useTimer";
 import styles from "./styles";
 
-const Timer = ({ active, pickedTimer }) => {
+const Timer = ({ active, pickedTimer, setTimeOut }) => {
   const [minutes, seconds, isTimeOut, setPause] = useTimer(pickedTimer.minutes, pickedTimer.seconds);
 
   useEffect(() => {
@@ -15,7 +15,9 @@ const Timer = ({ active, pickedTimer }) => {
   }, [active]);
 
   useEffect(() => {
-    console.log("time out!", isTimeOut);
+    if (isTimeOut) {
+      setTimeOut(true);
+    }
   }, [isTimeOut]);
 
   return (
