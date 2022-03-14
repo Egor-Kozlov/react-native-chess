@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useAsyncStorage } from "@react-native-async-storage/async-storage";
 // import useGetSetAsyncStorage from "./src/hooks/useGetSetAsyncStorage";
-import Navigate from "./Navigate";
-import SettingsContext from "./src/context/SettingsContext";
-import colorThemeList from "./src/components/Settings/components/BoardColors/colorThemeList";
-import backgroundsList from "./src/components/Settings/components/MenuBackground/backgroundsList";
-import piecesList from "./src/components/Settings/components/PiecesStyle/piecesList";
+import Navigate from "./src/router/Router";
+import settingsContext from "./src/context/settingsContext";
+import colorThemeList from "./src/modules/Settings/components/BoardColors/colorThemeList";
+import backgroundsList from "./src/modules/Settings/components/MenuBackground/backgroundsList";
+import piecesList from "./src/modules/Settings/components/PiecesStyle/piecesList";
 
 const BOARD_THEME_STORAGE_KEY = "boardTheme";
 const MENU_BACKGROUND_STORAGE_KEY = "menuBackground";
@@ -38,9 +38,11 @@ export default function App() {
   const setCellColors = (themeName, colorThemeList) => {
     const themeList = [...colorThemeList];
     const theme = themeList.find((item) => item.title === themeName);
-    setWhiteColor(theme.whiteCell);
-    setBlackColor(theme.blackCell);
-    setBorderColor(theme.borderCell);
+    if (theme) {
+      setWhiteColor(theme.whiteCell);
+      setBlackColor(theme.blackCell);
+      setBorderColor(theme.borderCell);
+    }
   };
 
   useEffect(() => {
@@ -54,7 +56,7 @@ export default function App() {
   }, [pickedTheme]);
 
   return (
-    <SettingsContext.Provider
+    <settingsContext.Provider
       value={{
         pickedTheme,
         setPickedTheme,
@@ -70,6 +72,6 @@ export default function App() {
       }}
     >
       <Navigate />
-    </SettingsContext.Provider>
+    </settingsContext.Provider>
   );
 }
